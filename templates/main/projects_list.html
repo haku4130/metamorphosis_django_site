@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Metamorphosis{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="row mt-4">
+            {% for project in projects %}
+                <div class="col-md-4">
+                    <div class="mb-4">
+                        <div class="project-block">
+                            <a href="{% url 'project_detail' project.id %}">
+                                <div class="project-image">
+                                    <img src="{{ project.photos.first.image.url }}" class="card-img-top"
+                                         alt="{{ project.title }}">
+                                </div>
+                                <div class="card-body project-content">
+                                    <p class="project-title">{{ project.title }}</p>
+                                    <p class="project-description">{{ project.description }}</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

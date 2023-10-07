@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Люди{% endblock %}
+
+{% block content %}
+    {% for person in people %}
+        <li>
+                <h2>{{ employee.first_name }} {{ employee.last_name }}</h2>
+                <p>Должность: {{ employee.position }}</p>
+                {% if employee.photo %}
+                    <img src="{{ employee.photo.url }}" alt="{{ employee.first_name }} {{ employee.last_name }}">
+                {% endif %}
+            </li>
+    {% endfor %}
+{% endblock %}

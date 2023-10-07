@@ -1,12 +1,110 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}Metamorphosis{% endblock %}</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    {#    <link rel="stylesheet" href="{% static 'styles.css' %}">#}
 </head>
+
+<style>
+    .project-block {
+        margin: 20px;
+        overflow: hidden;
+        transition: transform 0.3s;
+    }
+
+    .project-block:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-block a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .project-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .project-content {
+        padding: 10px;
+    }
+
+    .project-title {
+        font-size: 22px;
+        /*margin-top: 0px;*/
+    }
+
+    .project-description {
+        font-size: 16px;
+    }
+
+    .active {
+        font-weight: bold;
+    }
+
+    .brand-container {
+        display: flex;
+        justify-content: flex-start; /* Выравнивание элементов по левому краю */
+    }
+
+    .menu-container {
+        display: flex;
+        justify-content: center; /* Выравнивание элементов по центру */
+    }
+
+    .navbar-nav.ml-auto {
+        justify-content: center; /* Выравнивание пунктов меню по центру */
+    }
+
+    .oval-input {
+        border-radius: 25px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    li {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    body, html {
+        height: 100%;
+    }
+
+    .min-vh-100 {
+        min-height: 100vh;
+    }
+
+    .flex-grow-1 {
+        flex-grow: 1;
+    }
+
+    .brackets {
+        font-size: 10px;
+    }
+
+    body {
+        font-family: 'Roboto', sans-serif;
+    }
+</style>
+
 {% include 'includes/header.html' %}
-<body>
-{% block content %}
-{% endblock %}
+<body class="d-flex flex-column min-vh-100">
+<div class="flex-grow-1">
+    {% block content %}
+    {% endblock %}
+</div>
+
+{% include 'includes/footer.html' %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
