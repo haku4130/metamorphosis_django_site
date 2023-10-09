@@ -12,7 +12,7 @@ def index(request):
         Q(title__icontains=theme) |
         Q(description__icontains=theme)
     )
-    context = {"projects": projects, 'current_theme': theme}
+    context = {'projects': projects, 'current_theme': theme}
     return render(request, template, context)
 
 
@@ -24,7 +24,7 @@ def news(request):
 
 def people(request):
     template = 'main/people.html'
-    context = {"people": Employee.objects.all()}
+    context = {'people': Employee.objects.all()}
     return render(request, template, context)
 
 
@@ -41,5 +41,5 @@ def contacts(request):
 def project_detail(request, project_id):
     template = 'main/project_detail.html'
     project = get_object_or_404(Project, pk=project_id)
-    context = {"project": project}
+    context = {'project': project}
     return render(request, template, context)
