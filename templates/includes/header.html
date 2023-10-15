@@ -1,44 +1,96 @@
 {% with request.resolver_match.view_name as view_name %}
 
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-white justify-content-around">
+    <div class="container">
+        <header class="row align-items-start d-flex flex-wrap align-items-center justify-content-evenly justify-content-xxl-between pt-4 mb-0">
+            <div class="col-sm-12 d-flex justify-content-center col-md-auto mb-0 mb-md-0">
+                <a class="navbar-brand height-mid"
+                   href="{% url 'projects' %}"><b
+                        class="brackets height-mid">[</b><b class="height-mid header-brand">
+                    metamorphosis </b><b
+                        class="brackets height-mid">]</b></a>
+            </div>
 
-            <a class="navbar-brand height-mid" href="{% url 'projects' %}"><b class="brackets height-mid">[</b><b>
-                metamorphosis </b><b
-                    class="brackets height-mid">]</b></a>
-
-            <div class="justify-content-lg-between">
-                <div class="container d-flex justify-content-center mt-auto">
-                    <ul class="navbar-nav header-title">
-                        <li class="nav-item header-item {% if view_name == 'news' %}active{% endif %}">
-                            <a class="nav-link" href="{% url 'news' %}">новости</a>
-                        </li>
-                        <li class="nav-item header-item {% if view_name == 'people' %}active{% endif %}">
-                            <a class="nav-link" href="{% url 'people' %}">люди</a>
-                        </li>
-                        <li class="nav-item header-item {% if view_name == 'projects' or view_name == 'project_detail' %}active{% endif %}">
-                            <a class="nav-link" href="{% url 'projects' %}">архитектура</a>
-                        </li>
-                        <li class="nav-item header-item {% if view_name == 'about' %}active{% endif %}">
-                            <a class="nav-link" href="{% url 'about' %}">о нас</a>
-                        </li>
-                        <li class="nav-item header-item {% if view_name == 'contacts' %}active{% endif %}">
-                            <a class="nav-link" href="{% url 'contacts' %}">контакты</a>
-                        </li>
-                    </ul>
+            <div class="navbar d-xxl-none col-12 col-md-2 mt-3 mt-md-0 d-flex justify-content-center">
+                <button class="btn navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu"
+                     aria-labelledby="offcanvasExampleLabel" style="width: 200px">
+                    <div class="offcanvas-header m-4">
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body m-4">
+                        <div>
+                            <a class="dropdown-item pb-2 {% if view_name == 'news' %}active{% endif %}"
+                               href="{% url 'news' %}">новости</a>
+                            <a class="dropdown-item py-2 {% if view_name == 'people' %}active{% endif %}"
+                               href="{% url 'people' %}">люди</a>
+                            <a class="dropdown-item py-2 {% if view_name == 'projects' %}active{% endif %}"
+                               href="{% url 'projects' %}">архитектура</a>
+                            <a class="dropdown-item py-2 {% if view_name == 'about' %}active{% endif %}"
+                               href="{% url 'about' %}">о нас</a>
+                            <a class="dropdown-item pt-2 {% if view_name == 'contacts' %}active{% endif %}"
+                               href="{% url 'contacts' %}">контакты</a>
+                        </div>
+                        {% if view_name == 'projects' %}
+                            <div class="dropdown my-3">
+                                <button class="btn btn-outline-dark dropdown-toggle" type="button"
+                                        data-bs-toggle="dropdown">
+                                    темы
+                                </button>
+                                <ul class="dropdown-menu">
+                                    {% for theme in project_themes %}
+                                        <li class="nav-item lower_header-item my-2">
+                                            <a class="nav-link {% if current_theme == theme.name %}active{% endif %}"
+                                               href="{% url 'projects' %}?theme={{ theme.name }}">{{ theme.name }}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        {% endif %}
+                        <div class="col-auto d-flex d-md-none">
+                            <form class="form" action="{% url 'projects' %}" style="border: none">
+                                <input class="form-control oval-input" type="text" name="theme" placeholder="поиск"
+                                       aria-label="Search">
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <form class="form-inline" action="{% url 'projects' %}">
-                <input class="form-control oval-input" type="text" name="theme" placeholder="поиск" aria-label="Search">
-            </form>
-        </nav>
-        <nav class="navbar navbar-expand navbar-light bg-white lower-header">
+            <ul class="navbar-nav flex-row col-12 col-xxl-auto collapse d-none d-xxl-flex mb-2 justify-content-center mb-md-0 header-title"
+                id="navbarNav">
+                <li class="px-4 {% if view_name == 'news' %}active{% endif %}">
+                    <a class="nav-link" href="{% url 'news' %}">новости</a>
+                </li>
+                <li class="px-4 {% if view_name == 'people' %}active{% endif %}">
+                    <a class="nav-link" href="{% url 'people' %}">люди</a>
+                </li>
+                <li class="px-4 {% if view_name == 'projects' or view_name == 'project_detail' %}active{% endif %}">
+                    <a class="nav-link" href="{% url 'projects' %}">архитектура</a>
+                </li>
+                <li class="px-4 {% if view_name == 'about' %}active{% endif %}">
+                    <a class="nav-link" href="{% url 'about' %}">о нас</a>
+                </li>
+                <li class="px-4 {% if view_name == 'contacts' %}active{% endif %}">
+                    <a class="nav-link" href="{% url 'contacts' %}">контакты</a>
+                </li>
+            </ul>
+
+            <div class="col-auto d-none d-md-flex justify-content-end">
+                <form class="form" action="{% url 'projects' %}">
+                    <input class="form-control oval-input" type="text" name="theme" placeholder="поиск"
+                           aria-label="Search">
+                </form>
+            </div>
+
             {% if view_name == 'projects' %}
-                <div class="container d-flex justify-content-center mt-auto">
-                    <ul class="navbar-nav">
+                <div class="d-none d-xxl-flex col-12 d-flex justify-content-center mt-2">
+                    <ul class="navbar-nav flex-row">
                         {% for theme in project_themes %}
-                            <li class="nav-item lower_header-item">
+                            <li class="nav-item lower_header-item px-2">
                                 <a class="nav-link {% if current_theme == theme.name %}active{% endif %}"
                                    href="{% url 'projects' %}?theme={{ theme.name }}">{{ theme.name }}</a>
                             </li>
@@ -46,7 +98,8 @@
                     </ul>
                 </div>
             {% endif %}
-        </nav>
-    </header>
+
+        </header>
+    </div>
 
 {% endwith %}
