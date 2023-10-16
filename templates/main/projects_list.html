@@ -1,7 +1,5 @@
 {% extends 'base.html' %}
 
-{% block title %}Metamorphosis{% endblock %}
-
 {% block content %}
 
     <div class="container">
@@ -19,7 +17,7 @@
                                     </div>
                                     <div class="card-body project-content">
                                         <p class="project-text">{{ project.title }}</p>
-                                        <p class="project-text">{{ project.description }}</p>
+                                        <p class="project-text">{{ project.description|truncatewords:20 }}</p>
                                     </div>
                                 </a>
                             </div>

@@ -2,7 +2,7 @@
 
     <div class="container">
         <header class="row align-items-start d-flex flex-wrap align-items-center justify-content-evenly justify-content-xxl-between pt-4 mb-0">
-            <div class="col-sm-12 d-flex justify-content-center col-md-auto mb-0 mb-md-0">
+            <div class="col-6 col-md-4 col-xxl-2 d-flex justify-content-center mb-0 mb-md-0">
                 <a class="navbar-brand height-mid"
                    href="{% url 'projects' %}"><b
                         class="brackets height-mid">[</b><b class="height-mid header-brand">
@@ -10,13 +10,13 @@
                         class="brackets height-mid">]</b></a>
             </div>
 
-            <div class="navbar d-xxl-none col-12 col-md-2 mt-3 mt-md-0 d-flex justify-content-center">
+            <div class="navbar d-xxl-none col-6 col-md-4 mt-0 d-flex justify-content-center">
                 <button class="btn navbar-toggler" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu"
-                     aria-labelledby="offcanvasExampleLabel" style="width: 200px">
+                     aria-labelledby="offcanvasExampleLabel" style="width: 250px">
                     <div class="offcanvas-header m-4">
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
                                 aria-label="Close"></button>
@@ -51,7 +51,7 @@
                             </div>
                         {% endif %}
                         <div class="col-auto d-flex d-md-none">
-                            <form class="form" action="{% url 'projects' %}" style="border: none">
+                            <form class="form" action="{% url 'projects' %}" style="border: 0">
                                 <input class="form-control oval-input" type="text" name="theme" placeholder="поиск"
                                        aria-label="Search">
                             </form>
@@ -60,7 +60,7 @@
                 </div>
             </div>
 
-            <ul class="navbar-nav flex-row col-12 col-xxl-auto collapse d-none d-xxl-flex mb-2 justify-content-center mb-md-0 header-title"
+            <ul class="navbar-nav flex-row col-xxl-8 collapse d-none d-xxl-flex mb-2 mb-md-0 pe-0 justify-content-center header-title"
                 id="navbarNav">
                 <li class="px-4 {% if view_name == 'news' %}active{% endif %}">
                     <a class="nav-link" href="{% url 'news' %}">новости</a>
@@ -79,7 +79,7 @@
                 </li>
             </ul>
 
-            <div class="col-auto d-none d-md-flex justify-content-end">
+            <div class="col-4 col-xxl-2 d-none d-md-flex justify-content-center">
                 <form class="form" action="{% url 'projects' %}">
                     <input class="form-control oval-input" type="text" name="theme" placeholder="поиск"
                            aria-label="Search">
@@ -87,7 +87,7 @@
             </div>
 
             {% if view_name == 'projects' %}
-                <div class="d-none d-xxl-flex col-12 d-flex justify-content-center mt-2">
+                <div class="col-12 d-none d-xxl-flex justify-content-center mt-2">
                     <ul class="navbar-nav flex-row">
                         {% for theme in project_themes %}
                             <li class="nav-item lower_header-item px-2">
