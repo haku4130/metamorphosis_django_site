@@ -22,9 +22,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-zkw5dkpbeg7&nha%iu&qr7(e2(-!zjqbdsgi%o89c1c0t42fy*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['metamorphosis1.pythonanywhere.com']
 
 # Application definition
 
