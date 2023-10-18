@@ -1,20 +1,30 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Наши новости</h1>
-    <ul>
-        {% for article in news %}
-            <li>
-                <h2>{{ article.title }}</h2>
-                <p>{{ article.content }}</p>
-                <p>Дата публикации: {{ article.pub_date }}</p>
-                <h3>Фотографии новости:</h3>
-                <div class="photos">
-                    {% for photo in article.photos.all %}
-                        <img src="{{ photo.image.url }}" alt="{{ photo.image.name }}">
-                    {% endfor %}
+    <div class="d-flex justify-content-center p-5">
+        <p class="display-3">НОВОСТИ</p>
+    </div>
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            {% for article in news %}
+                <div class="col-12 my-5">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-1 d-flex justify-content-end">
+                            <p class="text-secondary" style="font-size: 12px">{{ article.pub_date|date:"d.m.Y" }}</p>
+                        </div>
+                        <div class="col-5">
+                            <div class="project-image px-3">
+                                <img src="{{ article.photo.image.url }}" class="card-img-top"
+                                     alt="{{ article.title }}">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <p style="font-weight: bold">{{ article.title|upper }}</p>
+                            <p class="text-secondary">{{ article.content }}</p>
+                        </div>
+                    </div>
                 </div>
-            </li>
-        {% endfor %}
-    </ul>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

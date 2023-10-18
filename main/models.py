@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 class ProjectsPhoto(models.Model):
@@ -37,8 +38,8 @@ class NewsPhoto(models.Model):
 class News(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
-    pub_date = models.DateTimeField(auto_now_add=True)
-    photos = models.ManyToManyField(NewsPhoto, blank=True)
+    pub_date = models.DateTimeField(default=timezone.now)
+    photo = models.OneToOneField(NewsPhoto, null=True, blank=True, unique=True, on_delete=models.PROTECT)
 
     def __str__(self):
         return self.title
