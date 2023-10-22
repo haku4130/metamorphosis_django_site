@@ -39,7 +39,7 @@ class News(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
     pub_date = models.DateTimeField(default=timezone.now)
-    photo = models.OneToOneField(NewsPhoto, null=True, blank=True, unique=True, on_delete=models.PROTECT)
+    photo = models.OneToOneField(NewsPhoto, null=True, blank=True, unique=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.title
