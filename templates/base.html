@@ -52,9 +52,11 @@
     }
 
     .oval-input {
-        border-radius: 6px;
+        border-radius: 30px;
         padding-left: 15px;
         max-width: 150px;
+        border: 0; /* добавляет тонкую серую рамку */
+        background-color: #f2f2f2; /* делает фон input серым */
     }
 
     li {
@@ -110,6 +112,56 @@
     .lower_header-item {
         margin-left: 20px;
         margin-right: 20px;
+    }
+
+    .nav-link {
+        transition: transform 0.3s ease; /* плавный переход */
+    }
+
+    .nav-link:hover {
+        transform: translateY(-5px); /* приподнимает элемент на 5 пикселей вверх при наведении */
+    }
+
+    .worker-img {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        padding-top: 100%; /* делает квадратиком */
+        transform: scale(1);
+        transition: transform 0.3s;
+    }
+
+    .worker-img:hover {
+        transform: scale(1.03); /* увеличение при наведении */
+    }
+
+    .worker-img img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .worker-overlay {
+        position: relative;
+    }
+
+    .worker-info {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        text-align: center;
+        transform: translateY(100%);
+        transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .worker-img:hover + .worker-info {
+        opacity: 1; /* становится видимым при наведении */
+        transform: translateY(0);
     }
 
 </style>

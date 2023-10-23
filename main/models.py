@@ -47,9 +47,9 @@ class News(models.Model):
 
 class Employee(models.Model):
     first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100, null=True, blank=True)
     position = models.CharField(max_length=100)
-    photo = models.ImageField(upload_to='employee_photos/', blank=True, null=True)
+    photo = models.ImageField(upload_to='static/employee_photos/', blank=True, null=True)
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
