@@ -2,7 +2,7 @@
 
     <div class="row justify-content-center mx-2">
         <header class="col-12 row d-flex flex-wrap align-items-center justify-content-evenly justify-content-xxl-evenly pt-4 mb-0">
-            <div class="col-4 col-xxl-2 d-flex justify-content-center mb-0 mb-md-0">
+            <div class="col-4 col-xxl-2 d-flex justify-content-start mb-0 mb-md-0">
                 <a class="navbar-brand height-mid"
                    href="{% url 'projects' %}"><b
                         class="brackets height-mid">[</b><b class="height-mid header-brand">
@@ -62,24 +62,24 @@
 
             <ul class="navbar-nav flex-row col-xxl-8 collapse d-none d-xxl-flex mb-2 mb-md-0 pe-0 justify-content-center header-title"
                 id="navbarNav">
-                <li class="px-5 mx-2 {% if view_name == 'news' %}active{% endif %}">
+                <li class="px-5 mx-2 {% if view_name == 'news' %}active{% else %}text-body-secondary{% endif %}">
                     <a class="nav-link" href="{% url 'news' %}">новости</a>
                 </li>
-                <li class="px-5 mx-2 {% if view_name == 'people' %}active{% endif %}">
+                <li class="px-5 mx-2 {% if view_name == 'people' %}active{% else %}text-body-secondary{% endif %}">
                     <a class="nav-link" href="{% url 'people' %}">люди</a>
                 </li>
-                <li class="px-5 mx-2 {% if view_name == 'projects' or view_name == 'project_detail' %}active{% endif %}">
+                <li class="px-5 mx-2 {% if view_name == 'projects' or view_name == 'project_detail' %}active{% else %}text-body-secondary{% endif %}">
                     <a class="nav-link" href="{% url 'projects' %}">архитектура</a>
                 </li>
-                <li class="px-5 mx-2 {% if view_name == 'about' %}active{% endif %}">
+                <li class="px-5 mx-2 {% if view_name == 'about' %}active{% else %}text-body-secondary{% endif %}">
                     <a class="nav-link" href="{% url 'about' %}">о&nbsp;&nbsp;нас</a>
                 </li>
-                <li class="px-5 mx-2 {% if view_name == 'contacts' %}active{% endif %}">
+                <li class="px-5 mx-2 {% if view_name == 'contacts' %}active{% else %}text-body-secondary{% endif %}">
                     <a class="nav-link" href="{% url 'contacts' %}">контакты</a>
                 </li>
             </ul>
 
-            <div class="col-4 col-xxl-2 d-none d-md-flex justify-content-center">
+            <div class="col-4 col-xxl-2 d-none d-md-flex justify-content-end">
                 <form class="form" action="{% url 'projects' %}">
                     <input class="form-control oval-input" type="text" name="theme" placeholder="поиск"
                            aria-label="Search">
@@ -91,7 +91,7 @@
                     <ul class="navbar-nav flex-row">
                         {% for theme in project_themes %}
                             <li class="nav-item lower_header-item px-3">
-                                <a class="nav-link {% if current_theme == theme.name %}active{% endif %}"
+                                <a class="nav-link {% if current_theme == theme.name %}active{% else %}text-body-secondary{% endif %}"
                                    href="{% url 'projects' %}?theme={{ theme.name }}">{{ theme.name }}</a>
                             </li>
                         {% endfor %}
