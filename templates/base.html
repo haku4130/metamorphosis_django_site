@@ -150,18 +150,23 @@
 
     .worker-info {
         position: absolute;
+        z-index: -1;
         top: 100%;
         left: 0;
         width: 100%;
         opacity: 0;
         text-align: center;
-        transform: translateY(100%);
+        transform: translateY(-50px);
         transition: transform 0.3s, opacity 0.3s;
     }
 
     .worker-img:hover + .worker-info {
         opacity: 1; /* становится видимым при наведении */
         transform: translateY(0);
+    }
+
+    .text-size-percent {
+        font-size: 100%; /* Это значение можно настроить под ваш дизайн */
     }
 
 </style>
