@@ -2,3 +2,4 @@
 venv/
 *.pyc
 **/__pycache__/
+site_for_architect/settings.py
