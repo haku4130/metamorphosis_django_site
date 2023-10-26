@@ -3,8 +3,8 @@
 {% block content %}
     <div class="m-5 row d-flex justify-content-center">
         <!-- Сделайте колонку адаптивной для разных размеров экрана -->
-        <div class="col-12 col-md-8 col-lg-6 d-flex justify-content-center" style="background-color: #f0f0f0">
-            <div class="col-12 col-md-8">
+        <div class="project-detail-column d-flex justify-content-center" style="background-color: #f0f0f0">
+            <div class="project-detail-content-column">
                 <div id="carouselExample" class="carousel slide pt-5">
                     <div class="carousel-inner">
                         {% for photo in project.photos.all %}

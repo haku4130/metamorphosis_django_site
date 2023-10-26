@@ -1,8 +1,8 @@
 {% with request.resolver_match.view_name as view_name %}
 
-    <div class="row justify-content-center mx-2">
-        <header class="col-12 row d-flex flex-wrap align-items-center justify-content-evenly justify-content-xxl-evenly pt-4 mb-0">
-            <div class="col-4 col-xxl-2 d-flex justify-content-start mb-0 mb-md-0">
+    <div class="row d-flex justify-content-center mx-2">
+        <header class="col-12 row d-flex flex-wrap align-items-center justify-content-between justify-content-sm-evenly justify-content-xxl-evenly pt-4 mb-0 px-0 px-md-4">
+            <div class="col-4 col-xxl-2 d-flex justify-content-start mb-0 px-0">
                 <a class="navbar-brand height-mid"
                    href="{% url 'projects' %}"><b
                         class="brackets height-mid">[</b><b class="height-mid header-brand">
@@ -10,8 +10,8 @@
                         class="brackets height-mid">]</b></a>
             </div>
 
-            <div class="navbar d-xxl-none col-2 col-md-4 mt-0 d-flex justify-content-center">
-                <button class="btn navbar-toggler" type="button" data-bs-toggle="offcanvas"
+            <div class="navbar d-xxl-none col-2 col-md-4 mt-0 d-flex justify-content-end justify-content-md-center">
+                <button class="btn navbar-toggler px-0" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu" style="border: none;">
                     <span class="navbar-toggler-icon"></span>
                 </button>

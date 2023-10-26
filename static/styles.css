@@ -1,5 +1,4 @@
 .project-block {
-    border: 1px solid #ccc;
     margin: 20px;
     overflow: hidden;
     transition: transform 0.3s;
@@ -7,7 +6,6 @@
 
 .project-block:hover {
     transform: scale(1.05);
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 }
 
 .project-block a {
@@ -21,47 +19,184 @@
     display: block;
 }
 
+.blur-image {
+    filter: blur(5px);
+}
+
 .project-content {
-    padding: 10px;
+    padding-top: 10px;
 }
 
-.project-title {
-    font-size: 22px;
-    /*margin-top: 0px;*/
-}
-
-.project-description {
-    font-size: 16px;
+.project-text {
+    font-size: 17px;
+    margin: 0;
 }
 
 .active {
     font-weight: bold;
 }
 
-.brand-container {
-    display: flex;
-    justify-content: flex-start; /* Выравнивание элементов по левому краю */
-}
-
-.menu-container {
-    display: flex;
-    justify-content: center; /* Выравнивание элементов по центру */
-}
-
-.navbar-nav.ml-auto {
-    justify-content: center; /* Выравнивание пунктов меню по центру */
-}
-
 .oval-input {
-    border-radius: 25px;
+    border-radius: 30px;
     padding-left: 15px;
-    padding-right: 15px;
+    max-width: 150px;
+    border: 0; /* добавляет тонкую серую рамку */
+    background-color: #f2f2f2; /* делает фон input серым */
 }
 
 li {
-    margin: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
-/*body {*/
-/*    font-family: 'Roboto', sans-serif;*/
-/*}*/
+body, html {
+    height: 100%;
+}
+
+.min-vh-100 {
+    min-height: 100vh;
+}
+
+.flex-grow-1 {
+    flex-grow: 1;
+}
+
+
+.height-mid {
+    vertical-align: middle;
+}
+
+.brackets {
+    font-size: 47px;
+}
+
+@font-face {
+    font-family: 'Roboto Light';
+    src: url('/static/ofont.ru_Roboto Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Roboto Light', sans-serif;
+}
+
+.header-title {
+    font-size: 25px;
+}
+
+.header-brand {
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.lower-header {
+    margin-top: 0;
+}
+
+.lower_header-item {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.nav-link {
+    transition: transform 0.3s ease; /* плавный переход */
+}
+
+.nav-link:hover {
+    transform: scale(1.05); /* приподнимает элемент на 5 пикселей вверх при наведении */
+}
+
+.worker-img {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 100%; /* делает квадратиком */
+    transform: scale(1);
+    transition: transform 0.3s;
+}
+
+.worker-img:hover {
+    transform: scale(1.03); /* увеличение при наведении */
+}
+
+.worker-img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.worker-overlay {
+    position: relative;
+}
+
+.worker-info {
+    position: absolute;
+    z-index: -1;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    text-align: center;
+    transform: translateY(-50px);
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.worker-img:hover + .worker-info {
+    opacity: 1; /* становится видимым при наведении */
+    transform: translateY(0);
+}
+
+.text-size-percent {
+    font-size: 100%; /* Это значение можно настроить под ваш дизайн */
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0;
+}
+
+@media (max-width: 768px) {
+    .project-detail-column {
+        width: 100%; /* Занимает всю доступную ширину */
+    }
+}
+
+@media (min-width: 769px) {
+    .project-detail-column {
+        width: 60%; /* Занимает половину доступной ширины */
+    }
+}
+
+@media (max-width: 768px) {
+    .project-detail-content-column {
+        width: 85%; /* Занимает всю доступную ширину */
+    }
+}
+
+@media (min-width: 769px) {
+    .project-detail-content-column {
+        width: 75%; /* Занимает половину доступной ширины */
+    }
+}
+
+.image-container {
+    /*width: clamp(550px, 70%, 100%);*/
+    max-width: 70%;
+    min-width: 250px;
+    height: 100%;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+}
+
+.about-container {
+    max-width: 70%;
+    min-width: 250px;
+    height: 100%;
+}
