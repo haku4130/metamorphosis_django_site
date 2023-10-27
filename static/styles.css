@@ -147,7 +147,6 @@ body {
 
 .worker-overlay {
     position: relative;
-    min-width: 120px;
 }
 
 .worker-info {
@@ -165,6 +164,10 @@ body {
 .worker-img:hover + .worker-info {
     opacity: 1;
     transform: translateY(0);
+}
+
+.worker-name {
+    font-size: clamp(12px, 2vw, 25px);
 }
 
 .text-size-percent {
