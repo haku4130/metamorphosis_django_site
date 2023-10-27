@@ -1,14 +1,20 @@
 .project-block {
-    margin: 20px;
+    margin: 20px 40px;
     overflow: hidden;
     transition: transform 0.3s;
+}
+
+@media (max-width: 1008px) {
+    .project-block {
+        margin: 20px 10px;
+    }
 }
 
 .project-block:hover {
     transform: scale(1.05);
 }
 
-.project-block a {
+a {
     text-decoration: none;
     color: inherit;
 }
@@ -40,8 +46,8 @@
     border-radius: 30px;
     padding-left: 15px;
     max-width: 150px;
-    border: 0; /* добавляет тонкую серую рамку */
-    background-color: #f2f2f2; /* делает фон input серым */
+    border: 0;
+    background-color: #f2f2f2;
 }
 
 li {
@@ -107,6 +113,16 @@ body {
     transform: scale(1.05); /* приподнимает элемент на 5 пикселей вверх при наведении */
 }
 
+.header-nav-link {
+    padding-left: 3.5vw;
+    padding-right: 3.5vw;
+}
+
+.lower-header-nav-link {
+    padding-left: max(2vw, 15px);
+    padding-right: max(2vw, 15px);
+}
+
 .worker-img {
     position: relative;
     overflow: hidden;
@@ -131,6 +147,7 @@ body {
 
 .worker-overlay {
     position: relative;
+    min-width: 120px;
 }
 
 .worker-info {
@@ -146,12 +163,12 @@ body {
 }
 
 .worker-img:hover + .worker-info {
-    opacity: 1; /* становится видимым при наведении */
+    opacity: 1;
     transform: translateY(0);
 }
 
 .text-size-percent {
-    font-size: 100%; /* Это значение можно настроить под ваш дизайн */
+    font-size: 100%;
 }
 
 .navbar-toggler:focus {
@@ -159,31 +176,18 @@ body {
 }
 
 @media (max-width: 768px) {
-    .project-detail-column {
-        width: 100%; /* Занимает всю доступную ширину */
-    }
-}
-
-@media (min-width: 769px) {
-    .project-detail-column {
-        width: 60%; /* Занимает половину доступной ширины */
-    }
-}
-
-@media (max-width: 768px) {
     .project-detail-content-column {
-        width: 85%; /* Занимает всю доступную ширину */
+        width: 95%;
     }
 }
 
 @media (min-width: 769px) {
     .project-detail-content-column {
-        width: 75%; /* Занимает половину доступной ширины */
+        width: 60%;
     }
 }
 
 .image-container {
-    /*width: clamp(550px, 70%, 100%);*/
     max-width: 70%;
     min-width: 250px;
     height: 100%;
@@ -199,4 +203,39 @@ body {
     max-width: 70%;
     min-width: 250px;
     height: 100%;
+}
+
+.logo-padding {
+    padding-left: 25px;
+}
+
+@media (max-width: 768px) {
+    .menu-button-padding {
+        padding-right: 25px;
+    }
+}
+
+@media (min-width: 769px) {
+    .menu-button-padding {
+        padding-right: 0;
+    }
+}
+
+.project-detail-photo {
+    width: 100%;
+}
+
+.contact {
+    font-size: 16px;
+    height: 100%;
+}
+
+.contact-title {
+    opacity: 0.7;
+}
+
+.contact-content {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 10px 0;
 }
