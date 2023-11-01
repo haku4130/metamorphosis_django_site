@@ -7,20 +7,23 @@
     <div class="container">
         <div class="row d-flex justify-content-center">
             {% for article in news %}
-                <div class="col-12 my-3">
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-12 col-lg-1 d-flex justify-content-start justify-content-lg-end align-items-end align-items-lg-start">
-                            <p class="text-secondary m-0" style="font-size: 12px">{{ article.pub_date|date:"d.m.Y" }}</p>
-                        </div>
-                        <div class="col-12 col-lg-8 p-0">
-                            <div class="project-image py-3 py-lg-0 px-3">
-                                <img src="{{ article.photo.image.url }}" class="card-img-top"
-                                     alt="{{ article.title }}">
+                <div data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500">
+                    <div class="col-12 my-3">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-12 col-lg-1 d-flex justify-content-start justify-content-lg-end align-items-end align-items-lg-start">
+                                <p class="text-secondary m-0"
+                                   style="font-size: 12px">{{ article.pub_date|date:"d.m.Y" }}</p>
                             </div>
-                        </div>
-                        <div class="col-12 col-lg-3">
-                            <p style="font-weight: bold">{{ article.title|upper }}</p>
-                            <p class="text-secondary">{{ article.content }}</p>
+                            <div class="col-12 col-lg-8 p-0">
+                                <div class="project-image py-3 py-lg-0 px-3">
+                                    <img src="{{ article.photo.image.url }}" class="card-img-top"
+                                         alt="{{ article.title }}">
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3">
+                                <p style="font-weight: bold">{{ article.title|upper }}</p>
+                                <p class="text-secondary">{{ article.content }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>

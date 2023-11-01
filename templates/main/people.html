@@ -2,18 +2,20 @@
 
 {% block content %}
     <div class="container">
-        <div class="row gx-5 justify-content-between mt-4 mx-0 mx-md-2">
+        <div class="row gx-5 mt-4 mx-0 mx-md-2">
             {% for person in people %}
                 <div class="col-6 col-lg-3 worker p-4 pt-0 pb-5 p-sm-5">
-                    <div class="worker-overlay">
-                        <div class="worker-img">
-                            <img src="{{ person.photo.url }}"
-                                 alt="{{ person.first_name }} {% if person.last_name %}person.last_name{% endif %}">
-                        </div>
-                        <div class="worker-info pt-2">
-                            <h5 class="pb-0 mb-1 worker-name">{{ person.first_name }}
-                                {% if person.last_name %}{{ person.last_name }}{% endif %}</h5>
-                            <p class="font-weight-bold worker-name">{{ person.position }}</p>
+                    <div data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500">
+                        <div class="worker-overlay">
+                            <div class="worker-img">
+                                <img src="{{ person.photo.url }}"
+                                     alt="{{ person.first_name }} {% if person.last_name %}person.last_name{% endif %}">
+                            </div>
+                            <div class="worker-info pt-2">
+                                <h5 class="pb-0 mb-1 worker-name">{{ person.first_name }}
+                                    {% if person.last_name %}{{ person.last_name }}{% endif %}</h5>
+                                <p class="font-weight-bold worker-position">{{ person.position }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
