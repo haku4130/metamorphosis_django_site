@@ -11,7 +11,7 @@ def index(request):
         Q(theme__name__icontains=theme) |
         Q(title__icontains=theme) |
         Q(description__icontains=theme)
-    )
+    ).distinct()
     context = {'projects': projects, 'current_theme': theme}
     return render(request, template, context)
 

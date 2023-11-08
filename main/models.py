@@ -20,7 +20,7 @@ class ProjectTheme(models.Model):
 class Project(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
-    theme = models.ForeignKey(ProjectTheme, null=True, on_delete=models.PROTECT)
+    theme = models.ManyToManyField(ProjectTheme, null=True)
     photos = models.ManyToManyField(ProjectsPhoto)
 
     def __str__(self):
