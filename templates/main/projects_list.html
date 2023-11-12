@@ -2,27 +2,18 @@
 
 {% block content %}
 
-    <div class="d-flex justify-content-center">
-
-        <div class="row mt-2 project-list">
+    <div class="project-list">
+        <div class="project-grid">
             {% for project in projects %}
-                <div class="col-md-4 px-0">
-                    <div class="mb-4">
-                        <div data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500">
-                            <div class="project-block">
-                                <a href="{% url 'project_detail' project.id %}">
-                                    <div class="project-image">
-                                        <img src="{{ project.photos.first.image.url }}" alt="{{ project.title }}">
-                                    </div>
-                                    <div class="card-body project-content justify-content-center">
-                                        <p class="project-title">{{ project.title }}</p>
-                                        <p class="project-description">{{ project.description|truncatechars:120 }}</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
+                <a href="{% url 'project_detail' project.id %}" class="project-card">
+                    <div class="project-main-image">
+                        <img src="{{ project.photos.first.image.url }}" alt="{{ project.title }}">
                     </div>
-                </div>
+                    <div class="project-content justify-content-center">
+                        <p class="project-title">{{ project.title }}</p>
+                        <p class="project-description">{{ project.small_description }}</p>
+                    </div>
+                </a>
             {% endfor %}
         </div>
     </div>

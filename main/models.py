@@ -29,6 +29,13 @@ class ProjectsPhoto(models.Model):
         return self.image.name
 
 
+class ProjectStatus(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+
+    def __str__(self):
+        return self.name
+
+
 class ProjectTheme(models.Model):
     name = models.CharField(max_length=100, unique=True)
 
@@ -39,9 +46,17 @@ class ProjectTheme(models.Model):
 class Project(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
+    small_description = models.CharField(max_length=50, default='конкурс')
     theme = models.ManyToManyField(ProjectTheme, blank=True)
+    status = models.ForeignKey(ProjectStatus, null=True, blank=True, on_delete=models.SET_NULL)
     photos = models.ManyToManyField(ProjectsPhoto, related_name='project_photos')
     main_photo = models.OneToOneField(ProjectsPhoto, null=True, blank=True, on_delete=models.SET_NULL)
+    location = models.CharField(max_length=100, default='Испания')
+    space = models.CharField(max_length=50, default='площадь')
+    full_space = models.CharField(max_length=50, default='общая площадь')
+    years = models.CharField(max_length=50, default='года')
+    client = models.CharField(max_length=50, default='клиент')
+    team = models.CharField(max_length=50, default='команда')
 
     def __str__(self):
         return self.title
