@@ -3,12 +3,13 @@
 {% block content %}
     <div class="mx-3 row d-flex justify-content-center">
         <div class="project-detail-content-column">
-            <div id="carouselExample" class="carousel slide">
+            <div id="carouselExample" class="carousel carousel-dark slide">
                 <div class="carousel-inner">
                     {% for photo in project.photos.all %}
                         <div class="carousel-item {% if forloop.first %}active{% endif %}">
                             <img src="{{ photo.image.url }}" class="d-block"
-                                 alt="{{ photo.description }}" style="max-height: 600px; overflow: hidden; object-position: center">
+                                 alt="{{ photo.description }}"
+                                 style="image-resolution: from-image; width: 776px; height: 600px; object-fit: contain; overflow: hidden; object-position: center">
                         </div>
                     {% endfor %}
                 </div>
@@ -23,20 +24,27 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
+
             <div class="d-grid justify-content-center my-5 pb-0">
                 <div class="container d-flex justify-content-center">
                     <!-- Изменение размера заголовка в зависимости от экрана -->
-                    <p class="font-weight-bold display-5 d-none d-md-block" style="text-transform: capitalize">{{ project.title }}</p>
-                    <p class="font-weight-bold h3 d-block d-md-none">{{ project.title }}</p>
+                    <p class="font-weight-bold display-5 d-none d-md-block"
+                       style="text-transform: capitalize">{{ project.title }}</p>
+                    <p class="font-weight-bold h3 d-block d-md-none"
+                       style="text-transform: capitalize">{{ project.title }}</p>
                 </div>
                 <div class="project-detail-statistics">
-                    <h5 style="margin-bottom: 0"><span class="project-detail-stat">Место:</span> {{ project.location }}</h5>
-                    <h5 style="margin-bottom: 0"><span class="project-detail-stat">Площадь участка:</span> {{ project.space }}</h5>
-                    <h5 style="margin-bottom: 0"><span class="project-detail-stat">Общая площадь:</span> {{ project.full_space }}</h5>
-                    <h5 style="margin-bottom: 0"><span class="project-detail-stat">Заказчик:</span> {{ project.client }}</h5>
-                    <h5 style="margin-bottom: 0"><span class="project-detail-stat">Годы:</span> {{ project.years }}</h5>
-                    <h5 style="margin-bottom: 0"><span class="project-detail-stat">Статус:</span> {{ project.status }}</h5>
-                    <h5 style="margin-bottom: 0"><span class="project-detail-stat">Команда:</span> {{ project.team }}</h5>
+                    <h5><span>Место:</span> {{ project.location }}
+                    </h5>
+                    <h5><span>Площадь участка:</span> {{ project.space }}</h5>
+                    <h5><span>Общая площадь:</span> {{ project.full_space }}</h5>
+                    <h5><span>Заказчик:</span> {{ project.client }}
+                    </h5>
+                    <h5><span>Годы:</span> {{ project.years }}</h5>
+                    <h5><span>Статус:</span> {{ project.status }}
+                    </h5>
+                    <h5><span>Команда:</span> {{ project.team }}
+                    </h5>
                 </div>
                 <div class="d-flex justify-content-center">
                     <h5 class="project-detail-description">{{ project.description | safe }}</h5>
