@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="container">
-        <div class="row gx-5 mt-4 mx-0 mx-md-2">
+
+    <div class="people-list">
+        <div class="row">
             {% for person in people %}
                 <div class="col-6 col-lg-3 worker p-4 pt-0 pb-5 p-sm-5">
                     <div data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500">
@@ -22,4 +23,5 @@
             {% endfor %}
         </div>
     </div>
+
 {% endblock %}

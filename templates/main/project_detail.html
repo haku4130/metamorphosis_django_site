@@ -33,7 +33,8 @@
                     <p class="font-weight-bold h3 d-block d-md-none"
                        style="text-transform: capitalize">{{ project.title }}</p>
                 </div>
-                <div class="project-detail-statistics">
+                <div class="project-detail-statistics" data-aos="fade-up" data-aos-easing="linear"
+                     data-aos-duration="500">
                     <h5><span>Место:</span> {{ project.location }}
                     </h5>
                     <h5><span>Площадь участка:</span> {{ project.space }}</h5>
@@ -46,7 +47,8 @@
                     <h5><span>Команда:</span> {{ project.team }}
                     </h5>
                 </div>
-                <div class="d-flex justify-content-center">
+                <div class="d-flex justify-content-center" data-aos="fade-up" data-aos-easing="linear"
+                     data-aos-duration="500">
                     <h5 class="project-detail-description">{{ project.description | safe }}</h5>
                 </div>
             </div>

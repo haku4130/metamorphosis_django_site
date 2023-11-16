@@ -35,22 +35,6 @@
                             <a class="dropdown-item pt-2 {% if view_name == 'contacts' %}active{% else %}text-body-secondary{% endif %}"
                                href="{% url 'contacts' %}">контакты</a>
                         </div>
-                        {#                        {% if view_name == 'projects' %}#}
-                        {#                            <div class="dropdown my-3">#}
-                        {#                                <button class="btn btn-outline-dark dropdown-toggle" type="button"#}
-                        {#                                        data-bs-toggle="dropdown">#}
-                        {#                                    разделы#}
-                        {#                                </button>#}
-                        {#                                <ul class="dropdown-menu">#}
-                        {#                                    {% for theme in project_themes %}#}
-                        {#                                        <li class="nav-item lower_header-item my-2">#}
-                        {#                                            <a class="nav-link {% if current_theme == theme.name %}active{% endif %}"#}
-                        {#                                               href="{% url 'projects' %}?theme={{ theme.name }}">{{ theme.name }}</a>#}
-                        {#                                        </li>#}
-                        {#                                    {% endfor %}#}
-                        {#                                </ul>#}
-                        {#                            </div>#}
-                        {#                        {% endif %}#}
                         <div class="col-auto d-flex d-md-none mt-4 mt-md-0">
                             <form class="form" action="{% url 'projects' %}" style="border: 0">
                                 <input class="form-control oval-input" type="text" name="theme" placeholder="поиск"
