@@ -41,5 +41,9 @@ def contacts(request):
 def project_detail(request, project_id):
     template = 'main/project_detail.html'
     project = get_object_or_404(Project, pk=project_id)
-    context = {'project': project}
+    project_photos = project.photos.all().order_by('display_order')
+    context = {
+        'project': project,
+        'project_photos': project_photos,
+    }
     return render(request, template, context)
